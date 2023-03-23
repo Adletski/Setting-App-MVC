@@ -36,7 +36,6 @@ extension SettingsController: SettingsViewDelegate {
     
     func selectedCell(setting: Setting) {
         let detailVC = DetailsController()
-        print(setting.name)
         detailVC.setting = setting
         navigationController?.pushViewController(detailVC, animated: true)
     }

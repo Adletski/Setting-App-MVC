@@ -62,8 +62,6 @@ class DetailsView: UIView {
         name.snp.makeConstraints { name in
             name.centerX.equalToSuperview()
             name.centerY.equalTo(iconImage.snp.bottom).offset(20)
-//            name.height.equalTo(100)
-//            name.width.equalTo(100)
         }
     }
 }

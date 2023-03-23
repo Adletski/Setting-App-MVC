@@ -58,17 +58,24 @@ class SettingsView: UIView {
 extension SettingsView: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        print(models.count)
         return models.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(models[section].count)
         return models[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as? SettingTableViewCell
+        let cellType = models[indexPath.section][indexPath.row].status
+        let customSwitch = UISwitch(frame: CGRectZero) as UISwitch
+        customSwitch.isOn = false
+        switch cellType {
+            case .checkmark:
+                cell?.accessoryType = .disclosureIndicator
+            case .swtch:
+                cell?.accessoryView = customSwitch
+        }
         cell?.setting = models[indexPath.section][indexPath.row]
         return cell ?? UITableViewCell()
     }

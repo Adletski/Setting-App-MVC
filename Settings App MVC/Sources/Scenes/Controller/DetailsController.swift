@@ -26,11 +26,7 @@ class DetailsController: UIViewController {
 }
 private extension DetailsController {
     func configureView() {
-        print(setting?.name)
-        print("adlet")
         guard let setting = setting else { return }
-        print("adlet 2")
-        print(setting.name)
         detailsView?.configureView(with: setting)
     }
 }
